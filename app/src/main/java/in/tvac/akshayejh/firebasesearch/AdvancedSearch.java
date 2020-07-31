@@ -34,11 +34,6 @@ public class AdvancedSearch extends AppCompatActivity {
 
     private Button mbsearch;
     private ArrayList<String> ingredients;
-    private ArrayList<String> database_imageURL;
-    private ArrayList<String> database_name;
-    private ArrayList<String> database_ingredient;
-    private ArrayList<Integer> database_total_num;
-    private ArrayList<String> database_execution;
 
     private ArrayList<String> exists;
     private static ArrayList<String> saved_imageURL;
@@ -46,8 +41,15 @@ public class AdvancedSearch extends AppCompatActivity {
     private static ArrayList<String> saved_recipes_ingredients;
     private static ArrayList<Integer> saved_total_num;
     private static ArrayList<String> saved_execution;
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference myRef;
+
+    private ArrayList<String> database_imageURL = new ArrayList<>();
+    private ArrayList<String> database_name = new ArrayList<>();
+    private ArrayList<String> database_ingredient = new ArrayList<>();
+    private ArrayList<Integer> database_total_num = new ArrayList<>();
+    private ArrayList<String> database_execution = new ArrayList<>();
+
+//    private FirebaseDatabase mFirebaseDatabase;
+//    private DatabaseReference myRef;
 
     private AdvancedQuery advQuer;
 
@@ -68,8 +70,13 @@ public class AdvancedSearch extends AppCompatActivity {
         saved_execution = new ArrayList<>();
         exists = new ArrayList<>();
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference().child("Recipes");
+
+        database_imageURL = CookleMain.getDatabase_imageURL();
+        database_name = CookleMain.getDatabase_name();
+        database_ingredient = CookleMain.getDatabase_ingredient();
+        database_total_num = CookleMain.getDatabase_total_num();
+        database_execution = CookleMain.getDatabase_execution();
+
 
         pork = findViewById(R.id.pork);
         beef = findViewById(R.id.beef);
@@ -137,7 +144,7 @@ public class AdvancedSearch extends AppCompatActivity {
 
         mbsearch = (Button) findViewById(R.id.search_button_adv);
         Log.d(TAG, "onCreate");
-        goListener();
+//        goListener();
 
         mbsearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +161,7 @@ public class AdvancedSearch extends AppCompatActivity {
 
     }
 
+    /*
     private void goListener() {
         Log.d(TAG, "goListener");
 
@@ -189,6 +197,8 @@ public class AdvancedSearch extends AppCompatActivity {
             }
         });
     }
+
+     */
 
     private void doLocalQuery() {
         Log.d(TAG, "doLocalQuery");
@@ -478,7 +488,6 @@ public class AdvancedSearch extends AppCompatActivity {
     public static void setSaved_execution(ArrayList<String> saved_execution) {
         AdvancedSearch.saved_execution = saved_execution;
     }
-
 
     public void openAdvancedResults(){
         if (saved_name == null){

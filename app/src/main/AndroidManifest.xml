@@ -23,26 +23,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecipeItem" />
-        <activity android:name=".InstructionalsFolder.instructionals" />
-        <activity android:name=".InstructionalsFolder.poachedeggs" />
-        <activity android:name=".InstructionalsFolder.onionResults" />
-        <activity android:name=".InstructionalsFolder.KnifeSkills" />
-        <activity android:name=".InstructionalsFolder.TomatoResults" />
+        <activity android:name=".OpenNameResults" />
         <activity android:name=".AdvancedResults" />
         <activity android:name=".OpenSelectedAdvanced" />
         <activity android:name=".AdvancedSearch" />
         <activity android:name=".FirebaseResults" />
-        <activity android:name=".RecipeObject" />
-        <activity android:name=".RecipeHistory" />
-        <activity android:name=".RecipeHistoryAdapter" />
-        <activity android:name=".SearchResults" />
-        <activity android:name=".Contact" />
-        <activity android:name=".Activityprofile" />
+        <activity android:name=".OpenSelectedSearch" />
         <activity android:name=".CookleMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
